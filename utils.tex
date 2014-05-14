@@ -1,0 +1,106 @@
+%extended symbol support
+\usepackage{marvosym}					
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{cancel}
+\usepackage{centernot}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usepackage{xfrac}
+\usepackage{mathtools}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+
+
+%common TikZ packages
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+%use this if you want to write something that not affects the position of the following text
+\newcommand{\zwidth}[1]{\makebox[0pt]{#1}}
+
+%use this for clasped underbraces
+\newcommand{\underbracec}[6]{\left#5\vphantom{#3 #1 #4}\right. #3 \underbrace{#1}_{#2} #4 \left.\vphantom{#3 #1 #4}\right#6}
+
+% provides a fast method to create vectors
+%\newcommand{\vecz}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
+%\newcommand{\vect}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+\newcommand{\vecz}[2]{\left[#1\:\:#2\right]^{\text{t}}}
+
+%Use only in Math mode:
+% makes the root of #1#2#3. Underbraces #2 with #4.
+\newcommand{\uroot}[4]
+{
+	\sqrt
+	{
+		\vphantom{#1#2#3} \smash
+		{
+     		#1\underbrace{#2}_{#4}#3
+     	}
+    }
+	\vphantom{#1\underbrace{#2}_{#4}#3}
+}
+
+%from Guy Rutenberg http://www.guyrutenberg.com/2008/01/04/add-explanations-to-latex-formulas/
+\newcommand{\explain}[2]{\underset{\mathclap{\overset{\uparrow}{#2}}}{#1}}
+\newcommand{\explainup}[2]{\overset{\mathclap{\underset{\downarrow}{#2}}}{#1}}
+
+%\widebar wider bar! from http://www.latex-community.org/forum/viewtopic.php?f=46&t=20717
+\newcommand*\widebar[1]{\hbox{\vbox{\hrule height 0.5pt
+      \kern0.5ex\hbox{\kern-0.1em\ensuremath{#1}\kern-0.1em}}}}
+      
+%Multiline comments
+%\newcommand{\comment}[1]{}
+
+%Starts enumaration of sections with 0 in a new part. Copy this in your mastersheet. Keep it commented here because you cannot turn it off.
+%\let\randocommandname\part
+%\renewcommand{\part}[1]{\randocommandname{#1}\setcounter{section}{0}}
+
+%Usefull commands and operators
+\newcommand{\N}{\mathbb{N}}		%Natürliche Zahlen
+\newcommand{\R}{\mathbb{R}}		%Reelle Zahlen
+\newcommand{\Z}{\mathbb{Z}}		%Ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}}		%Rationale Zahlen
+\newcommand{\K}{\mathbb{K}}		%allgemeiner Körper
+\newcommand{\C}{\mathbb{C}}		%Komplexe Zahlen
+\newcommand{\dV}{V^{\star}}		%Dualraum von V
+\DeclareMathOperator{\dist}{d}	%Abstand
+\DeclareMathOperator{\HW}{HW}	%Häufungswert
+\DeclareMathOperator{\KM}{KM}	%???
+\DeclareMathOperator{\HP}{HP}	%Häufungspunkt
+\DeclareMathOperator{\grad}{grad}	%Grad
+\DeclareMathOperator{\arsinh}{arsinh}	
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\id}{id}		%Identität
+\DeclareMathOperator{\Kern}{Kern}	%Kern
+\DeclareMathOperator{\Bild}{Bild}	%Bild
+\DeclareMathOperator{\Hom}{Hom}		%Menge der Homomorphismen
+\DeclareMathOperator{\CP}{CP}	%Charakteristisches Polynom
+\DeclareMathOperator{\MP}{MP}	%Minimalpolynom
+\DeclareMathOperator{\ER}{ER}	%Eigenraum
+\DeclareMathOperator{\EW}{EW}	%Eigenwert
+\DeclareMathOperator{\GL}{GL}	%Menge der invertierbaren Matrizen
+\DeclareMathOperator{\Abb}{Abb}	%Abbildung
+\DeclareMathOperator{\Rang}{Rang}	%Rang
+\DeclareMathOperator{\Spec}{Spec}	%Spektrum
+\DeclareMathOperator{\Spur}{Spur}	%Spektrum
+\DeclareMathOperator{\Haupt}{Hauptraum}
+\newcommand{\infsumo}{\sum\limits_{n=1}^{\infty}}
+\newcommand{\infsumz}{\sum\limits_{n=0}^{\infty}}
+\newcommand{\limi}{\lim\limits_{x\rightarrow\infty}}
+\newcommand{\limn}{\lim\limits_{x\rightarrow 0}}
+\newcommand{\limp}{\lim\limits_{x\rightarrow 0+}}
+\newcommand{\limm}{\lim\limits_{x\rightarrow 0-}}
+\newcommand{\eqlhop}{\underset{\text{de l'Hôpital}}{=}}
+\newcommand{\convinf}{\underset{n\rightarrow\infty}{\longrightarrow}}
+\newcommand{\fann}{\forall n\in\N:}
+\newcommand{\deff}{\underset{\text{Def}}{\Rightarrow}}
+\newcommand{\limninf}{\lim\limits_{n\rightarrow\infty}}
+\newcommand{\satz}[1]{\textbf{Satz:} #1\vspace{1cm}}
+\newcommand{\beispiel}[1]{ \textbf{Beispiel:} #1\vspace{.5cm}}
+\newcommand{\define}[1]{\textbf{Definition:} #1\vspace{.5cm}}
