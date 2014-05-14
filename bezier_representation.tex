@@ -1,2 +1,97 @@
-\chapter{B\'ezier representation}
+\chapter{Bézier Representation}
+Recall that the set of polynomials of degree n forms a vector space. A
+basis is \[\{1, x, \dots, x^n\}\].
+\begin{defi} A representation ofa polyomial with respect
+  to \[\{1, x, \dots, x^n\}\] is colled the monomial representation.
+\end{defi}
+\section{Bernstein Polynomial}
 
+\[1 = 1^n
+    = (u + (1-u))^n 
+    = \sum^n_{i=0} {n \choose i} u^i (1-u)^{n-i}\]
+\begin{defi}
+\[B^n_i(u) = {n \choose i}u^i (1-u)^{n-i}\] is called a Bernstein
+Polynomial.
+\end{defi}
+\(B_i^n (u) = 0\) if \((i < 0)\) or \((i > n)\).
+\begin{lem}
+\label{lem2.1}
+\(B_0^n \dots B_n^n\) are linear independent.
+\end{lem}
+\begin{proof}
+\begin{eqnarray*}
+  \sum b_i B_i^n &=& \sum b_i {n \choose i} u^i (1-u)^{n-1} \\
+                &=& \frac{0}{\frac{1}{(1-u)^n}}\\
+                &\Rightarrow& \sum b_i (\frac{u}{1-u})^i = 0\\
+                &\Rightarrow& \sum b_i s^i = 0\\
+                &\Rightarrow& b_i = 0
+\end{eqnarray*}
+\end{proof}
+\begin{theo}
+\(B_0^n \dots B_n^n \) form a basis for polynomials of degree n. Proof
+follows from Lemma \ref{lem2.1} and the fact that the dimension of the
+space of polynomials of degree \(n\) is \(n+1\)
+\end{theo}
+\begin{lem}{Symmetry}
+\[B_i^n(0) = B^n_{n-1}(u)\]
+\end{lem}
+\begin{lem}
+\begin{equation*}
+  B_i^n(0) = B^n_{n-1}(1) = 
+  \begin{cases}
+    1 & \textrm{if } i=0 \cr
+    0 & \textrm{otherwise} \cr
+  \end{cases} 
+\end{equation*}
+\end{lem}
+\begin{lem}
+\(B_0^n \dots B_0^n \) form a partition of unity (\(\sum B_i^n = 1\))
+\end{lem}
+\begin{lem}
+\(B_i^n(u)>0\), \(u\in(0,1)\)
+\end{lem}
+\begin{lem}
+  \(B_i^{n+1}(u) = u B_{i-1}^n(u) + (1-u) B_i^n(u) \)
+\end{lem}
+\section{Bézier Representation}
+\begin{defi}
+A representation of a polynomial with respect to \( {B_0^n \dots B_n^n}
+\) is calles the Bézier representation. Let \( c(u) = \sum_{i=0}^n c_i
+B_i^n(u)\). \(c_i\) can be in 
+\( \mathbb{R}^n \)
+. For practical reasons
+is \(u \in [a, b]\).\\
+Note: \(u(t)=a(1-t)+bT \).\\
+\[ b(t) := c(a(t))\], b has same the degree as c and represents the
+same polinomial, but with a different parametrisation.
+\end{defi}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.2\textwidth]{graphics/kurve.pdf}
+\end{figure}
+
+\(b(t)\) has a Bézierrepresentation of degree n.
+\[ b(t) = \sum_{i=0}^n b_iB_i^n(t) \nonumber
+\]
+\begin{defi} \(b_i\) is called a control point.\end{defi}
+\begin{defi} u is a global parameter, t is local.\end{defi}
+\begin{defi} The piecewise linear interpolant of the \(b_i\) is called the
+  control polygone.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=.25\textwidth]{graphics/control_polygone.pdf}
+\caption{control polygone}
+\end{figure}
+\end{defi}
+\begin{lem}
+
+\begin{eqnarray*}
+b(u) &=& \sum_{i=0}^n b_i B_i^n(t)\\
+     &=& \sum_{i=0}^n b_{n-i}B_{n-i}^n(1-t)
+\end{eqnarray*}
+\end{lem}
+\begin{lem}[end point interpolation]
+\[ \mathbb{b}(a)=\mathbb{b}_0\]
+\end{lem}
